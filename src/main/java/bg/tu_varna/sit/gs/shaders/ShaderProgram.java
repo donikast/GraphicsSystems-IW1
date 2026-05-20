@@ -1,6 +1,7 @@
 package bg.tu_varna.sit.gs.shaders;
 
 import org.joml.Matrix4f;
+import org.joml.Vector3f;
 import org.lwjgl.BufferUtils;
 
 import java.nio.FloatBuffer;
@@ -81,6 +82,13 @@ public class ShaderProgram {
         int location = glGetUniformLocation(programId, name);
         if (location != -1) {
             glUniform1f(location, value);
+        }
+    }
+
+    public void setUniform(String name, Vector3f value) {
+        int location = glGetUniformLocation(programId, name);
+        if (location != -1) {
+            glUniform3f(location, value.x, value.y, value.z);
         }
     }
 }
